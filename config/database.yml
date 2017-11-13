@@ -2,8 +2,8 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: localhost
-  username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  username: postgres
+  password: ruby
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
