@@ -1,0 +1,23 @@
+<div class="title-container">
+  <h1>Leaves</h1>
+  <%= link_to "New leave", new_leafe_path %>
+</div>
+
+
+<div class="leaves">
+  <% @leaves.each do |leave| %>
+    <div class ="leave">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3><%= link_to leave.start_date, leafe_path(leave) %></h3>
+          <p>
+            <%= link_to "Edit", edit_leafe_path(leave) %>
+            <%= link_to "Delete", leafe_path(leave), data: {
+              confirm: "Are you sure you want to delete?"
+              }, method: :delete %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

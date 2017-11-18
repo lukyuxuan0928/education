@@ -1,0 +1,24 @@
+<div class="title-container">
+  <h1>Leave</h1>
+</div>
+
+<h2>
+  Start: <%= @leave.start_date %>
+</h2>
+
+<h2>
+  End: <%= @leave.end_date %>
+</h2>
+
+<h2>
+  Student: <%= @leave.student%>
+</h2>
+
+<div>
+  <p>
+    <%= button_to "Edit", edit_leafe_path(@leave), class: "btn btn-default" %>
+    <%= button_to "Delete", leafe_path(@leave), data: {
+      confirm: "Are you sure you want to delete?"
+      }, method: :delete, class: "btn btn-default" %>
+  </p>
+</div>
