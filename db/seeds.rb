@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+exit if !Rails.env.development?
+puts "Deleting the Data"
+Student.delete_all
+User.delete_all
+Leaves.delete_all
+
+puts "Creating User"
+FactoryBot.create(:user)
+
+puts "Creating Students"
+20.times do
+  FactoryBot.create(:student)
+end
+
+puts "Creating Leaves"
+20.times do
+  FactoryBot.create(:leaves)
+end
