@@ -1,29 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Education</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
 
-    <header>
-      <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-      <% else %>
-      <%= link_to 'Sign in', sign_in_path %>
-      <% end %>
+    <header class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <%= link_to "Education", root_path, class: "navbar-brand" %>
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <% if signed_in? %>
+              <li><%= link_to "Students", student_index_url %></li>
+              <li><%= link_to "Leaves", leaves_url %></li>
+              <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to 'Sign in', sign_in_path %></li>
+            <% end %>
+          </ul>
     </header>
 
 
-    <section>
+    <section class="container">
       <div id="flash">
         <% flash.each do |key, value| %>
-        <div class="flash <%= key %>"><%= value %></div>
+        <div class="flash alert <%= alert_class(key) %>"><%= value %></div>
         <% end %>
       </div>
       <%= yield %>
