@@ -79,6 +79,11 @@ Here I will provide some test case and run the testing before coding, please rev
   $ rails g minitest:install
 ```
 
+### Run the minitest to test the models
+```
+  $ rails test
+```
+
 ## Version
 
 Please take note that might minor changes of syntax on different version
